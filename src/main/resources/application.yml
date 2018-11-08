@@ -1,5 +1,18 @@
+
 spring:
   data:
     mongodb:
       database: mymongo
       uri: mongodb://127.0.0.1:27017
+
+
+
+#logging.level.org:
+#  logging.level.org .springframework.data.mongodb.core: debug
+#debug: true
+
+logging:
+  level:
+    com.example.demo: debug
+    springframework.data.mongodb.core: debug;
+debug: true

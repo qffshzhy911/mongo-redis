@@ -1,5 +1,6 @@
 package com.example.demo.Redis;
 
+import com.esotericsoftware.kryo.Kryo;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
@@ -9,6 +10,8 @@ import java.util.Date;
 
 @Service
 public class UserService {
+
+    Kryo kryo = new Kryo();
 
     // @Cacheable缓存key为name的数据到缓存usercache中
     @Cacheable(value = "usercache", key = "#p0")

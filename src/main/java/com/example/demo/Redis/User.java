@@ -1,6 +1,8 @@
 package com.example.demo.Redis;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
 
     public User() {
     }
