@@ -16,6 +16,12 @@ public class RedisConfig {
 
     /**
      * redisTemplate 序列化使用的Serializeable, 存储二进制字节码, 所以自定义序列化类
+     *
+     * 原始 RedisTemplate 内有各種序列化器
+     * 默认使用 JdkSerializationRedisSerializer
+     *
+     * 改寫默認的  RedisAutoConfiguration      redisTemplate  方法
+     *
      * @param redisConnectionFactory
      * @return
      */

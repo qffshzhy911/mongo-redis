@@ -20,6 +20,36 @@ import java.util.Queue;
 @Service
 public class BaseService {
 
+    /**
+     * sync 异步模式
+     */
+
+    /**
+     * 1   自动配置类:  public class CacheAutoConfiguration
+     * 2   缓存配置类  static class CacheConfigurationImportSelector implements ImportSelector
+     *    有10种
+     *    1.org.springframework.boot.autoconfigure.cache.GenericCacheConfiguration
+     *    2.org.springframework.boot.autoconfigure.cache.JCacheCacheConfiguration
+     *    。
+     *    。
+     *    。
+     *    10. org.springframework.boot.autoconfigure.cache.RedisCacheConfiguration
+     *
+     *3
+     *    1 默認生效 ： SimpleCacheConfiguration:
+     *
+     *    2 現在生效 ：RedisCacheConfiguration
+     *
+     *4
+     *   1 給容器注冊  RedisCacheManager   緩存管理器   其最終實現了 CacheManager
+     *      CacheManager  根據緩存名稱  獲得組件
+     *
+     *
+     */
+
+
+
+
     @Autowired
     private MongoTemplate mongoTemplate;
 
@@ -34,6 +64,7 @@ public class BaseService {
     }
 
     /**
+     * cacheNames  缓存组件名称  当成redis 的“表名”
      * unless = "#result==null   返回值为null 则不缓存
      * @param name
      * @return

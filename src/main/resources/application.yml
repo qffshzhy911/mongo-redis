@@ -1,4 +1,4 @@
-
+debug: true
 spring:
   data:
     mongodb:
@@ -15,4 +15,3 @@ logging:
   level:
     com.example.demo: debug
     springframework.data.mongodb.core: debug;
-debug: true
