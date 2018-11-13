@@ -3,6 +3,9 @@ package com.example.demo.Mongo.entity;
 import java.util.Date;
 
 public class People extends BaseDocumentEntity {
+
+
+    private static final long serialVersionUID = 7999473987320381242L;
     private String name;
     private Integer age;
 

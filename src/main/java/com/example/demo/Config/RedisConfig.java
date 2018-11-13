@@ -3,12 +3,16 @@ package com.example.demo.Config;
 
 import com.example.demo.Redis.KryoRedisSerializer;
 import com.example.demo.Redis.User;
+import org.springframework.cache.interceptor.KeyGenerator;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
+
+import java.lang.reflect.Method;
+import java.util.Arrays;
 
 
 @Configuration
@@ -41,5 +45,25 @@ public class RedisConfig {
         template.afterPropertiesSet();
 
         return template;
+    }
+
+    /**
+     * 自定义key生成器
+     * key
+     */
+
+    @Bean("redisKeyGenerator")
+    public KeyGenerator redisKeyGenerator(){
+
+        return   new KeyGenerator(){
+
+            @Override
+              public Object generate(Object o, Method method, Object... objects) {
+             // System.err.println("调用自定义redisKeyGenerator");
+                return method.getName()+"["+ Arrays.asList(objects)  +"]";
+            }
+        };
+
+
     }
 }
